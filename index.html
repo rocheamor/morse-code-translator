@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js" defer type="module"></script>
+    <link rel="stylesheet" href="./styles.css">
+    <title>Morse Code Translator</title>
+</head>
+<body>
+    <header>
+        <h1>Morse Code Translator</h1>
+        <h3>-- --- .-. ... . / -.-. --- -.. . / - .-. .- -. ... .-.. .- - --- .-.</h3>
+    </header>
+    <main>
+        <div class="container">
+            <div class="container__translation">
+                <label for="englishTextArea">ENGLISH ALPHABET</label>
+                <textarea class="text-area" id="englishTextArea" placeholder="Enter your text in English alphabet here"></textarea>
+                <p id="english-error"></p>
+            </div>
+            <div class="container__translation">
+                <label for="morseTextArea">MORSE CODE</label>
+                <textarea class="text-area" id="morseTextArea" placeholder="Enter your text in Morse code here"></textarea>
+                <p id="morse-error"></p>
+            </div>
+        </div>
+    </main>
+    
+    
+</body>
+</html>
