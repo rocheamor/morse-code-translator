@@ -6,7 +6,7 @@ export const toMorse = (word) => {
 
     if(arrayOfLetters.every(letter => 
         morseObject[letter])=== false)
-        throw new Error (`ERROR: Input includes characters that don't exist in Morse code.`);
+        throw new Error (`ERROR: Input includes character(s) that don't have a corresponding Morse code translation.`);
 
     return arrayOfLetters.map((letter) => {
         return morseObject[letter]}).join(" ")};

@@ -3,18 +3,16 @@ import {toEnglish} from './toEnglish.js';
 
 const englishTextArea = document.querySelector('#englishTextArea');
 const morseTextArea = document.querySelector('#morseTextArea');
-const englishError = document.querySelector('#english-error')
-const morseError = document.querySelector('#morse-error')
+const englishErrorPara = document.querySelector('#english-error')
+const morseErrorPara = document.querySelector('#morse-error')
 
-const clearErrorEnglish = () => englishError.textContent = '';
-const displayErrorEnglish = (message) => englishError.textContent = message;
-const clearErrorMorse = () => morseError.textContent = '';
-const displayErrorMorse = (message) => morseError.textContent = message;
+const clearError = (errorElement) => errorElement.textContent = '';
+const displayError = (message, errorElement) => errorElement.textContent = message;
   
 
 englishTextArea.addEventListener('input', function(event) {
+  clearError(englishErrorPara);
 
-  clearErrorEnglish();
   const text = event.target.value;
   
   try {
@@ -22,14 +20,16 @@ englishTextArea.addEventListener('input', function(event) {
     morseTextArea.value = morseTranslation;
   } 
   catch (error) {
-    displayErrorEnglish(error.message); 
+    displayError(error.message, englishErrorPara); 
   }
 });
 
 
 morseTextArea.addEventListener('input', function(event) {
-    clearErrorMorse();
+    clearError(morseErrorPara);
+
     const text = event.target.value;
+
     try {
         if(text !== '') {
         const englishTranslation = toEnglish(text.trimRight());
@@ -39,6 +39,6 @@ morseTextArea.addEventListener('input', function(event) {
         }
     } 
     catch (error) {
-        displayErrorMorse(error.message)
+        displayError(error.message, morseErrorPara);
     }
 });
